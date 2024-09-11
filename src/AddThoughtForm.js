@@ -4,6 +4,8 @@ import { generateId, getNewExpirationTime } from './utilities';
 export function AddThoughtForm(props) {
   const [text, setText] = useState('');
 
+  const handleTextChange = (e) => setText(e.target.value);
+
   return (
     <form className="AddThoughtForm">
       <input
