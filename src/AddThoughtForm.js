@@ -8,7 +8,7 @@ export function AddThoughtForm(props) {
   const handleSubmit = (e) => e.preventDefault();
 
   return (
-    <form className="AddThoughtForm">
+    <form className="AddThoughtForm" onSubmit={handleSubmit}>
       <input
         type="text"
         aria-label="What's on your mind?"
