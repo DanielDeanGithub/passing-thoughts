@@ -5,6 +5,7 @@ export function AddThoughtForm(props) {
   const [text, setText] = useState('');
 
   const handleTextChange = (e) => setText(e.target.value);
+  const handleSubmit = (e) => e.preventDefault();
 
   return (
     <form className="AddThoughtForm">
