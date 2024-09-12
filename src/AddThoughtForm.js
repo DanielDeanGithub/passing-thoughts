@@ -5,7 +5,14 @@ export function AddThoughtForm(props) {
   const [text, setText] = useState('');
 
   const handleTextChange = (e) => setText(e.target.value);
-  const handleSubmit = (e) => e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    props.addThought({
+      id: generateId(),
+      text: text,
+      expiresAt: getNewExpirationTime(),
+    })
+  };
 
   return (
     <form className="AddThoughtForm" onSubmit={handleSubmit}>
