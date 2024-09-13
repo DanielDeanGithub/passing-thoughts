@@ -11,7 +11,8 @@ export function AddThoughtForm(props) {
       id: generateId(),
       text: text,
       expiresAt: getNewExpirationTime(),
-    })
+    });
+    setText("");
   };
 
   return (
