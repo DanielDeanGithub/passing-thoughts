@@ -18,7 +18,15 @@ export default function App() {
     },
   ]);
 
-  const addThought = thought => setThoughts((thoughts) => [thought, ...thoughts]);
+  const addThought = thought => {
+    setThoughts((thoughts) => [thought, ...thoughts]);
+  };
+  
+  const removeThought = thoughtId => {
+    setThoughts((thoughts) => {
+      thoughts.filter((thought) => thought.id !== thoughtId);
+    });
+  };
 
   return (
     <div className="App">
