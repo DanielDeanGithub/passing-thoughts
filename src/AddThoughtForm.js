@@ -6,13 +6,17 @@ export function AddThoughtForm(props) {
 
   const handleTextChange = (e) => setText(e.target.value);
   const handleSubmit = (e) => {
-    e.preventDefault()
-    props.addThought({
-      id: generateId(),
-      text: text,
-      expiresAt: getNewExpirationTime(),
-    });
-    setText("");
+    e.preventDefault();    
+
+    if (text.length > 0 ) {
+      props.addThought({
+        id: generateId(),
+        text: text,
+        expiresAt: getNewExpirationTime(),
+      });
+
+      setText('');
+    };
   };
 
   return (
