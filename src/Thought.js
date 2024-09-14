@@ -1,7 +1,7 @@
 import React from 'react';
 
 export function Thought(props) {
-  const { thought, removeThought } = props;
+  const { thought, removeThought  } = props;
 
   const handleRemoveClick = () => {
     removeThought(thought.id);

@@ -18,14 +18,14 @@ export default function App() {
     },
   ]);
 
-  const addThought = thought => {
-    setThoughts((thoughts) => [thought, ...thoughts]);
-  };
-  
+  const addThought = thought => setThoughts(
+    (thoughts) => [thought, ...thoughts]
+  );
+    
   const removeThought = thoughtId => {
-    setThoughts((thoughts) => {
-      thoughts.filter((thought) => thought.id !== thoughtId);
-    });
+    setThoughts((thoughts) => 
+      thoughts.filter((thought) => thought.id !== thoughtId)
+    );
   };
 
   return (
@@ -37,7 +37,7 @@ export default function App() {
         <AddThoughtForm addThought={addThought} />
         <ul className="thoughts">
           {thoughts.map((thought) => (
-            <Thought key={thought.id} thought={thought} />
+            <Thought key={thought.id} thought={thought} removeThought={removeThought} />
           ))}
         </ul>
       </main>
