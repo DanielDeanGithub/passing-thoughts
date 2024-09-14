@@ -10,9 +10,9 @@ export function Thought(props) {
   useEffect(() => {
     // calculates remaining time
     const timeRemaining = thought.expiresAt - Date.now();
-    // `timer` displays alert after timeRemaining expires
+    // `timer` removes thought after timeRemaining expires
     const timer = setTimeout(() => {
-      alert('Time has passed!');
+      removeThought(thought.id);
     }, timeRemaining);
     // return function that removes `timer` to clean up effect
     return () => clearTimeout(timer);
