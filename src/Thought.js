@@ -7,6 +7,18 @@ export function Thought(props) {
     removeThought(thought.id);
   };
 
+  useEffect(() => {
+    // calculates remaining time
+    const timeRemaining = thought.expiresAt - Date.now();
+    // `timer` displays alert after timeRemaining expires
+    const timer = setTimeout(() => {
+      alert('Time has passed!');
+    }, timeRemaining);
+    // return function that removes `timer` to clean up effect
+    return () => clearTimeout(timer);
+    // [thought] added as dependency to re-run effect every time `thought` is different
+  }, [thought]);
+
   return (
     <li className="Thought">
       <button
